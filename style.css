@@ -1,39 +1,77 @@
-body{
-      text-align: center;
-     background-color :linear-gradient(135deg, #0f0c29, #302b63);;
-      color: black;
-     font-family: sans-serif;
-}
-
-.btn{
-    height : 200px;
-    width : 200px;
-    border-radius : 25px;
-    border : 10px solid black;
-    margin : 1.5rem;
-}
- .container{
-    display : flex;
+body {
+    text-align: center;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
- }
- .red{
-    background-color: #9F0F17;
-    top: 0;
-    left: 100px;
- }
- .yellow{
-    background-color: #FDFD96;
- }
- .green{
-    background-color:#00A74A;
- }
- .purple{
-    background-color:#094A8F;
- }
- .flash{
-    background-color: white;
- }
- .userFlash{
-    background-color: aqua;
- }
- 
+    align-items: center;
+    animation: fadeIn 2s ease-in;
+  }
+  
+  @keyframes fadeIn {
+    0% { opacity: 0; transform: scale(0.95); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+  
+  .btn {
+    height: 200px;
+    width: 200px;
+    border-radius: 25px;
+    border: 8px solid #ffffff;
+    margin: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  }
+  
+  .btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 24px rgba(255, 255, 255, 0.3);
+  }
+  
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 2rem;
+  }
+  
+  .red {
+    background-color: #e74c3c;
+  }
+  
+  .yellow {
+    background-color: #f1c40f;
+  }
+  
+  .green {
+    background-color: #2ecc71;
+  }
+  
+  .purple {
+    background-color: #8e44ad;
+  }
+  
+  .flash {
+    animation: flashAnim 0.3s ease-in-out;
+  }
+  
+  @keyframes flashAnim {
+    0% { background-color: white; }
+    100% { background-color: inherit; }
+  }
+  
+  .userFlash {
+    animation: userFlashAnim 0.3s ease-in-out;
+  }
+  
+  @keyframes userFlashAnim {
+    0% { background-color: aqua; }
+    100% { background-color: inherit; }
+  }
+  
