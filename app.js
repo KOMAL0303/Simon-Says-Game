@@ -1,11 +1,18 @@
  let gameSeq = []; //initializing an empty array
  let userSeq = [];
+ 
+
 
  let btns = ["red","blue","green","yellow"];
 
 let started = false; //creating a variable which game has not started yet
 let level = 0; // shows level as 0
  let h2 =document.querySelector("h2");
+
+ let highScore = localStorage.getItem("highScore") || 0;
+let highScoreDisplay = document.createElement("h3");
+highScoreDisplay.innerText = `Highest Score: ${highScore}`;
+document.body.insertBefore(highScoreDisplay, h2.nextSibling);
 
  document.addEventListener("keypress",function() {
 if(started == false){
@@ -50,6 +57,12 @@ function checkAns(idx) {
            setTimeout(levelUp, 1000);
         }
     }else{
+        
+if (level > highScore) {
+    highScore = level;
+    localStorage.setItem("highScore", highScore);
+    highScoreDisplay.innerText = `Highest Score: ${highScore}`;
+}
         h2.innerHTML = `Game Over! Your score was <b>${level}</b><br>Press any key to start again.`;
         document.querySelector("body").style.backgroundColor = "red";
         setTimeout(function() {
